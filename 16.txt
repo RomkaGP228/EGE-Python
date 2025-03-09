@@ -31,3 +31,66 @@ def f(n):
 
 
 print(f(5))
+
+Условие:
+https://inf-ege.sdamgia.ru/problem?id=58226
+Решение:
+def F(n):
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 2
+    elif n > 2 and n % 2 == 0:
+        return round((3 * n + F(n - 3)) / 3)
+    elif n > 2 and n % 2 != 0:
+        return round((7 * n + F(n - 1) - F(n - 2)) / 5)
+
+
+print(F(35))
+
+Условие:
+https://3.shkolkovo.online/catalog/4419/25989?SubjectId=30
+Решение:
+def F(n):
+    if n == 0:
+        return 0
+    elif n % 3 == 0 and n % 2 != 0 and n % 5 != 0:
+        return 3 * F(n // 3)
+    elif n % 3 == 0 and n % 2 != 0 and n % 5 == 0:
+        return 2 * F(n // 2)
+    elif n % 3 != 0 and n % 2 != 0 and n % 5 == 0:
+        return 5 * F(n // 5)
+    else:
+        return 2 * n
+
+
+print(sum(list(filter(lambda x: 1000 <= F(x) <= 3000, range(0, 10000000, 2)))))
+
+
+Условие:
+# Алгоритм вычисления значения функции F(n), где n – целое число, задан следующими соотношениями:
+# F(n) = n, при n ≤ 5,
+# F(n) = n + F(n//5 + 1), когда n > 5 и делится на 5,
+# F(n) = n + F(n + 6) , когда n > 5 и не делится на 5.
+# Назовите минимальное значение n, для которого F(n) определено и больше 1000.
+Решение:
+from functools import lru_cache
+
+
+@lru_cache
+def F(n):
+    if n <= 5:
+        return n
+    elif n > 5 and n % 5 == 0:
+        return n + F(n // 5 + 1)
+    elif n > 5 and n % 5 != 0:
+        return n + F(n + 6)
+
+
+for n in range(5, 1000):
+    try:
+        if F(n) > 1000:
+            print(n)
+            break
+    except RecursionError:
+        print(f'Change {n} bitch')
