@@ -1,0 +1,33 @@
+NEW BEAST GOAT ALGO:
+
+for x in [k * 0.25 for k in range(?, ?)]:
+    A = ? #если просят наибольшую возможную, то 1, а если наименьшую, то 0
+    P = ? <= x <= ? # диапазон P
+    Q = ? <= x <= ? # диапазон Q
+    f = ? # уравнение f
+    if f != ?: # аналогично с А, только наоборот => наименьшая, то 1, наибольшая, то 0
+        print(x)
+
+
+
+Условие:
+https://3.shkolkovo.online/catalog/7517/49372?SubjectId=30
+Решение:
+for x in [k * 0.25 for k in range(-10000, 10000)]:
+    A = 0
+    P = 55 <= x <= 100
+    Q = 66 <= x <= 129
+    f = P <= ((Q and (not A)) <= (not P))
+    if f != 1:
+        print(x)
+
+Условие:
+https://3.shkolkovo.online/catalog/7517/6012?SubjectId=30
+Решение:
+for x in [k * 0.25 for k in range(-10000, 10000)]:
+    A = 1
+    P = 15 <= x <= 50
+    Q = 35 <= x <= 60
+    f = ((not A) <= P) <= (A <= Q)
+    if f != 0:
+        print(x)
