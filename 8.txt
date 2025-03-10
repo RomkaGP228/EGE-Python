@@ -1,0 +1,10 @@
+Условие:
+https://3.shkolkovo.online/catalog/4425/6205?SubjectId=30
+Решение:
+from itertools import *
+
+t = product("НРДО", repeat=4)
+
+for k, i in enumerate(t):
+    if ''.join(i) == 'ДРОН':
+        print(k + 1)  # тк нумерация с 0
