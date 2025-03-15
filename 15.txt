@@ -31,3 +31,19 @@ for x in [k * 0.25 for k in range(-10000, 10000)]:
     f = ((not A) <= P) <= (A <= Q)
     if f != 0:
         print(x)
+
+Условие:
+https://3.shkolkovo.online/catalog/7518/29731?SubjectId=30
+Решение:
+for A in range(1, 1000):
+    Flag = True
+    for x in [k for k in range(0, 1000)]:
+        Q = 12 <= x <= 48
+        P = 32 <= x <= 64
+        f = (x % 5 == 0) or (x & A == 0) or (not Q) or (P <= (abs(x - 31) >= 17))
+        if f == 0:
+            Flag = False
+            break
+    if Flag:
+        print(A)
+        break
