@@ -94,3 +94,114 @@ for n in range(5, 1000):
             break
     except RecursionError:
         print(f'Change {n} bitch')
+
+Условие:
+https://3.shkolkovo.online/catalog/4420/60486?SubjectId=30
+Решение:
+from functools import lru_cache
+
+
+@lru_cache()
+def F(n):
+    def G(n):
+        if n <= 2:
+            return n - 1
+        elif n > 2:
+            return F(n - 1) + G(n - 1)
+
+    if n <= 2:
+        return n ** 2
+    elif n > 2:
+        return G(n - 2) - F(n - 2) + 8
+
+
+for n in range(100):
+    if F(n) == 6607:
+        print(n)
+        break
+
+Условие:
+https://3.shkolkovo.online/catalog/4420/60482?SubjectId=30
+Решение:
+def F(n):
+    def G(n):
+        if n <= 3:
+            return 2
+        elif n > 3:
+            return G(n - 1) - F(n - 2) + 2
+
+    if n <= 2:
+        return 1
+    elif n > 2:
+        return F(n - 1) + G(n - 2) - 2
+
+
+print(F(31))
+
+Условие:
+https://3.shkolkovo.online/catalog/4420/58970?SubjectId=30
+Решение:
+def G(n):
+    def F(n):
+        if n == 1:
+            return 2
+        elif n > 1:
+            return G(n - 1) * F(n - 1) - n ** n
+
+    if n == 1:
+        return 2
+    elif n > 1:
+        return 5 * F(n - 1) - n * G(n - 1)
+
+
+print(G(5))
+
+Условие:
+https://3.shkolkovo.online/catalog/4420/30453?SubjectId=30
+Решение:
+from functools import lru_cache
+
+
+@lru_cache()
+def F(n):
+    def G(n):
+        if n < 12 and n % 3 != 0:
+            return F(n - 1) + n
+        elif n < 12 and n % 3 == 0:
+            return G(n - 1) + F(n // 3) - n
+        else:
+            return n * n
+
+    if n < 12:
+        return n
+    elif n > 11 and n % 2 == 0:
+        return G(n // 2) * 2 - F(n - 1)
+    elif n > 11 and n % 2 != 0:
+        return - G(n - 1)
+
+
+print(max(list(filter(lambda n: sum(map(int, str(abs(F(n))))) == 33, range(1, 1001)))))
+
+Условие:
+https://3.shkolkovo.online/catalog/4420/26068?SubjectId=30
+Решение:
+def f(n):
+    if n <= 10:
+        return n
+    elif n > 10 and n % 10 == 0:
+        return f(n % 5) + 1
+    else:
+        return n * f(n - 1)
+
+
+def g(n):
+    if n >= 21:
+        return n * n + 1 * n + 3
+    elif n < 21 and n % 2 == 0:
+        return 2 * g(n - 2) * g(n - 4)
+    else:
+        return 2 * g(n - 1) * g(n - 3)
+
+
+a = f(g(f(g(22))))
+print(sum(map(int, str(a))))

@@ -1,11 +1,20 @@
-from math import log2, ceil
+def f(n):
+    if n <= 10:
+        return n
+    elif n > 10 and n % 10 == 0:
+        return f(n % 5) + 1
+    else:
+        return n * f(n - 1)
 
-N1 = 18
-N2 = 10
-K1 = 1
-K2 = 9
-n = 25
-i1 = ceil(log2(N1))
-i2 = ceil(log2(N2))
-I = ceil((i1 * K1 + i2 * K2) / 8)  # чисто по кайфу находим кобинации, разделив пароль на два мелких
-print(I * n)
+
+def g(n):
+    if n >= 21:
+        return n * n + 1 * n + 3
+    elif n < 21 and n % 2 == 0:
+        return 2 * g(n - 2) * g(n - 4)
+    else:
+        return 2 * g(n - 1) * g(n - 3)
+
+
+a = f(g(f(g(22))))
+print(sum(map(int, str(a))))
