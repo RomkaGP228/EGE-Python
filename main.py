@@ -1,11 +1,22 @@
-from math import floor
+from functools import lru_cache
+from sys import setrecursionlimit
 
-K = 3614 * 5410
-i = 24
-I1 = 8 * 1024 * 1024 * 1024 * 8
-n = 3215
-I0 = K * i
-n1 = floor(I1 / I0)
-while n > n1:
-    n -= n1
-print(n)
+setrecursionlimit(100000)
+
+
+@lru_cache()
+def f(n):
+    if n == 1:
+        return 1
+    elif n > 1:
+        return f(n - 1) + 3 * g(n - 1)
+
+
+@lru_cache()
+def g(n):
+    if n == 1:
+        return 1
+    elif n > 1:
+        return f(n - 1) - 2 * g(n - 1)
+
+print(sum(map(int, str(f(18)))))

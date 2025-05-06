@@ -290,3 +290,125 @@ for n in range(1, 1001):
     if '0' not in a:
         count += 1
 print(count)
+
+Условие:
+Алгоритм вычисления функции F(n), где n – целое число, задан следующими
+соотношениями:
+F(n) = n, при n ≤ 1,
+F(n) = 1 + F(n / 2), когда n > 1 и чётное,
+F(n) = 1 + F(n + 2) , когда n > 1 и нечётное.
+Назовите минимальное значение n, для которого F(n) = 16.
+Ответ: 32768
+Решение:
+from functools import lru_cache
+from sys import setrecursionlimit
+
+setrecursionlimit(100000)
+
+@lru_cache()
+def f(n):
+    if n <= 1:
+        return n
+    elif n > 1 and n % 2 == 0:
+        return 1 + f(n / 2)
+    return 1 + f(n + 2)
+
+for i in range(100000):
+    try:
+        if f(i) == 16:
+            print(i)
+            break
+    except RecursionError:
+        pass
+
+
+Условие:
+Алгоритм вычисления функции F(n), где n – целое неотрицательное число, задан
+следующими соотношениями:
+F(0) = 3
+F(n) = F(n–1), при 0 < n ≤ 15
+F(n) = 2,5*F(n–3), при 15 < n < 100
+F(n) = 3,3*F(n–2), при n ≥ 100
+С какой цифры начинается дробная часть значения функции F(100)?
+Ответ: 6
+Решение:
+from functools import lru_cache
+from sys import setrecursionlimit
+
+setrecursionlimit(100000)
+
+
+@lru_cache()
+def f(n):
+    if n == 0:
+        return 3
+    elif 0 < n <= 15:
+        return f(n - 1)
+    elif 15 < n < 100:
+        return 2.5 * f(n - 3)
+    elif n >= 100:
+        return 3.3 * f(n - 2)
+
+
+print(f(100))
+
+Условие:
+Алгоритм вычисления функций F(n) и G(n) задан следующими соотношениями:
+        F(n) = G(n) = 1 при n = 1
+        F(n) = F(n–1) + 3 · G(n–1), при n > 1
+        G(n) = F(n–1) – 2 · G(n–1), при n > 1
+Чему равна сумма цифр значения функции F(18)?
+Ответ: 46
+Решение:
+from functools import lru_cache
+from sys import setrecursionlimit
+
+setrecursionlimit(100000)
+
+
+@lru_cache()
+def f(n):
+    if n == 1:
+        return 1
+    elif n > 1:
+        return f(n - 1) + 3 * g(n - 1)
+
+
+@lru_cache()
+def g(n):
+    if n == 1:
+        return 1
+    elif n > 1:
+        return f(n - 1) - 2 * g(n - 1)
+
+print(sum(map(int, str(f(18)))))
+
+Условие:
+Обозначим частное от деления натурального числа a на натуральное число
+b как a // b, а остаток как a%b.
+Например, 17//3 = 5, 17%3 = 2.
+Алгоритм вычисления функции F(n), где n – неотрицательное число,
+задан следующими соотношениями:
+F(n) = n, если n < 10,
+F(n) = F(n//10) + F(n%10), если 10 ≤ n < 1000,
+F(n) = F(n//1000) – F(n%1000), если n ≥ 1000.
+Найдите количество чисел, не превышающих 10⁶, для которых F(n) = 0.
+Ответ: 55252
+Решение:
+from functools import lru_cache
+from sys import setrecursionlimit
+
+setrecursionlimit(100000)
+
+
+@lru_cache()
+def f(n):
+    if n < 10:
+        return n
+    elif 10 <= n < 1000:
+        return f(n // 10) + f(n % 10)
+    elif n >= 1000:
+        return f(n // 1000) - f(n % 1000)
+
+
+print(len(list(filter(lambda x: f(x) == 0, range(10 ** 6 + 1)))))
