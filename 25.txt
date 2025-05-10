@@ -36,3 +36,83 @@ for i in range(20222022, 2022, -1):
     a = fn(i)
     if not f(i) and a:
         print(i, a)
+
+Условие:
+Источник: https://kpolyakov.spb.ru/
+Напишите программу, которая ищет среди целых чисел, принадлежащих числовому отрезку [126849; 126871],
+числа, имеющие ровно 4 различных делителя.
+Выведите эти четыре делителя для каждого найденного числа в порядке возрастания.
+В ответе запишите через пробел сначала 4 делителя в порядке возрастания для первого найденного числа,
+потом для второго, и так далее для всех найженных чисел.
+Решение:
+import math
+
+
+def prime_factors(n):
+    lst = set()
+    lst.add(1)
+    lst.add(n)
+    for j in range(2, int(math.sqrt(n) + 1)):
+        if n % j == 0:
+            lst.add(j)
+            lst.add(n // j)
+    return list(map(str, sorted(lst)))
+
+
+for i in range(126849, 126871):
+    a = prime_factors(i)
+    if len(a) == 4:
+        print(' '.join(a))
+
+Условие:
+Задача с сайта https://kpolyakov.spb.ru/
+
+Среди целых чисел, принадлежащих числовому отрезку [268312;336492],
+найдите числа, которые представляют собой произведение двух различных простых делителей.
+Запишите в ответе количество таких чисел и минимальное из них.
+
+Решение:
+import math
+
+
+for i in range(12034679, 23175821):
+    lst = set()
+    if math.sqrt(i) == int(math.sqrt(i)):
+        for j in range(2, int(math.sqrt(i)) + 1):
+            if i % j == 0:
+                lst.add(j)
+                lst.add(i // j)
+                if len(lst) > 3:
+                    break
+    if len(lst) == 3:
+        print(i, max(lst))
+
+
+Условие:
+Задача с сайта https://kpolyakov.spb.ru/
+
+Среди целых чисел, принадлежащих числовому отрезку [268312;336492],
+найдите числа, которые представляют собой произведение двух различных простых делителей.
+Запишите в ответе количество таких чисел и минимальное из них.
+Решение:
+import math
+
+
+def f(n):
+    for g in range(2, int(math.sqrt(n)) + 1):
+        if n % g == 0:
+            return False
+    return True
+
+
+count = 0
+br = set()
+for i in range(268312, 336492):
+    ls = set()
+    for j in range(2, int(math.sqrt(i)) + 1):
+        if i % j == 0 and f(j) and f(i // j) and j != (i // j):
+            br.add(i)
+            count += 1
+            break
+
+print(count, min(br))

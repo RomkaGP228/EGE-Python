@@ -1,22 +1,21 @@
-from functools import lru_cache
-from sys import setrecursionlimit
-
-setrecursionlimit(100000)
+import math
 
 
-@lru_cache()
 def f(n):
-    if n == 1:
-        return 1
-    elif n > 1:
-        return f(n - 1) + 3 * g(n - 1)
+    for g in range(2, int(math.sqrt(n)) + 1):
+        if n % g == 0:
+            return False
+    return True
 
 
-@lru_cache()
-def g(n):
-    if n == 1:
-        return 1
-    elif n > 1:
-        return f(n - 1) - 2 * g(n - 1)
+count = 0
+br = set()
+for i in range(268312, 336492):
+    ls = set()
+    for j in range(2, int(math.sqrt(i)) + 1):
+        if i % j == 0 and f(j) and f(i // j) and j != (i // j):
+            br.add(i)
+            count += 1
+            break
 
-print(sum(map(int, str(f(18)))))
+print(count, min(br))
