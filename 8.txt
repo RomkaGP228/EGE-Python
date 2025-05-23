@@ -19,3 +19,27 @@ t = product("НРДО", repeat=4)
 for k, i in enumerate(t):
     if ''.join(i) == 'ДРОН':
         print(k + 1)  # тк нумерация с 0
+
+Условие:
+Определите количество пятизначных чисел, записанных в девятеричной системе счисления,
+в записи которых ровно одна цифра 3, при этом никакая из цифр 5, 6, 7, 8 не стоит рядом с цифрой 3.
+Ответ:
+6400
+Решение:
+def f(n, b):
+    fin = ''
+    numeric = '0123456789'
+    while n > 0:
+        fin = numeric[n % b] + fin
+        n //= b
+    return fin
+count = 0
+for i in range(9 ** 4, 9 ** 5):
+    a = f(i, 9)
+    if str(a).count('3') == 1 and '53' not in a and '53' not in a and\
+        '63' not in a and '73' not in a and '83' not in a and '35' not in a and \
+            '36' not in a and '37' not in a and '38' not in a:
+        count += 1
+
+print(count)
+

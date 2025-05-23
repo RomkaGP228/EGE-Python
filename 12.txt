@@ -3,8 +3,8 @@ for i in range(381, 1000):
     n = '5' * i
     bi = len(n)
     while '55555' in n:
-        n = n.replace('55555', '88')
-        n = n.replace('888', '55')
+        n = n.replace('55555', '88', 1)
+        n = n.replace('888', '55', 1)
     if n.count("5") < count:
         count = n.count('5')
         print(bi, n.count('5'))
@@ -19,7 +19,7 @@ https://3.shkolkovo.online/catalog/4522/6051?SubjectId=30
 a = 125 * '7'
 while '777' in a:
     a = a.replace('7777', '6', 1)
-    a = a.replace('666', '7')
+    a = a.replace('666', '7', 1)
 
 print(a)
 
@@ -61,10 +61,36 @@ def f(s: str):
 s1 = '*' + '515151' + '11'
 s2 = '*' + '11' + '515151'
 fs1, fs2 = f(s1), f(s2)
-fs1, fs2 = fs1.replace('*', ''), fs2.replace('*', '')
+fs1, fs2 = fs1.replace('*', '', 1), fs2.replace('*', '', 1)
 if sum(map(int, fs1)) == 29:
     print(s1.count('5'))
     print('s1 работает')
 if sum(map(int, fs2)) == 29:
     print(s2.count('5'))
     print('s2 работает')
+
+Условие:
+Какая строка получится в результате применения приведённой ниже программы к строке,
+состоящей из 108 идущих подряд цифр 7?
+В ответе запишите полученную строку.
+НАЧАЛО
+ПОКА нашлось (33333) ИЛИ нашлось (777)
+ЕСЛИ нашлось (33333)
+ТО заменить (33333, 7)
+ИНАЧЕ заменить (777, 3)
+КОНЕЦ ЕСЛИ
+КОНЕЦ ПОКА
+КОНЕЦ
+Ответ: 3337
+Решение:
+a = '7' * 108
+
+while '33333' in a or '777' in a:
+    if '33333' in a:
+        a = a.replace('33333', '7', 1)
+    else:
+        a = a.replace('777', '3', 1)
+
+print(a)
+
+Условие:
