@@ -44,7 +44,7 @@ for i in range(9 ** 4, 9 ** 5):
 print(count)
 
 Условие:
-
+https://3.shkolkovo.online/catalog/4426/85067
 Решение:
 from itertools import product
 
@@ -59,38 +59,36 @@ for i in ls:
 print(count)
 
 Условие:
-from itertools import product
+https://3.shkolkovo.online/catalog/4426/84848
+Решение:
+from itertools import permutations
 
 count = 0
 a = 'САПОГ'
-ls = list(product(a, repeat=5))
+ls = list(permutations(a))
 for i in ls:
-    st = ''.join(i)
-    if 'АО' not in st and 'ОА' not in st and 'СП' not in st and 'ПС' not in st and \
-            'ПГ' not in st and 'АО' not in st and 'ГС' not in st and 'СГ' not in st and \
-            'ГП' not in st:
+    s = ''.join(i)
+    if ('СП' not in s) and ('ПС' not in s) and ('СГ' not in s) and ('ГС' not in s) and ("ПГ" not in s) and ('ГП' not in s) and ('ОА' not in s) and ("АО" not in s):
         count += 1
 
 print(count)
 
 Условие:
-
+https://3.shkolkovo.online/catalog/4426/62641
 Решение:
-from itertools import product
+from itertools import permutations
 
-count = 0
+didi = set()
 a = 'ОБОРОНА'
-ls = list(product(a, repeat=7))
-for i in ls:
-    st = ''.join(i)
-    if 'ААА' in st or 'ААО' in st or 'АОА' in st or 'ОАА' in st or 'ООА' in st or 'ОАО' in st or \
-            'ООА' in st or 'ООО' in st or 'ААА' in st:
-        count += 1
-
-print(count)
+sv = list(permutations(a))
+for i in sv:
+    s = ''.join(i)
+    if 'ООО' in s or 'АОО' in s or 'ОАО' in s or 'ООА' in s:
+        didi.add(s)
+print(len(didi))
 
 Условие:
-
+https://3.shkolkovo.online/catalog/4426/62639
 Решение:
 from itertools import product
 
@@ -100,17 +98,17 @@ ls = list(product(a, repeat=7))
 for i in ls:
     s = ''.join(i)
     if s[0] != 'И' and s[-1] != 'О' and 'СЛ' not in s and 'ЛС' not in s and 'СВ' not in s and 'ВС' not in s and 'ЛВ' not in s and \
-            'ВЛ' not in s:
+            'ВЛ' not in s and len(s) == len(set(s)):
         count += 1
 print(count)
 
 Условие:
-
+https://3.shkolkovo.online/catalog/4426/62637
 Решение:
 from itertools import product
 
 count = 0
-a = 'КРУЖКА'
+a = 'КРУЖА'
 ls = list(product(a, repeat=7))
 for i in ls:
     st = ''.join(i)
@@ -118,3 +116,4 @@ for i in ls:
             (st.count('А') == 0 and st.count('У') == 2):
         count += 1
 print(count)
+

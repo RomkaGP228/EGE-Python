@@ -26,7 +26,7 @@ for i in range(1, 1000):
         break
 
 Условие:
-
+https://3.shkolkovo.online/catalog/4433/72443
 Решение:
 for n in range(1, 1000):
     bn = bin(n)[2:]
@@ -41,7 +41,7 @@ for n in range(1, 1000):
         break
 
 Условие:
-
+https://3.shkolkovo.online/catalog/4433/62645
 Решение:
 for n in range(94, 1000):
     bn = bin(n)[2:]
@@ -60,7 +60,7 @@ for n in range(94, 1000):
         break
 
 Условие:
-
+https://3.shkolkovo.online/catalog/4433/60022
 Решение:
 count = 0
 for n in range(1, 1000):
@@ -78,7 +78,7 @@ for n in range(1, 1000):
 print(count)
 
 Условие:
-
+https://3.shkolkovo.online/catalog/5605/75233
 Решение:
 def f(n, base):
     fin = ''
@@ -107,7 +107,7 @@ for n in range(1, 1000):
 
 
 Условие:
-
+https://3.shkolkovo.online/catalog/5605/75230
 Решение:
 def f(n, base):
     fin = ''

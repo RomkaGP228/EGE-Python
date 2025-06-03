@@ -1,7 +1,7 @@
 from itertools import product
 
 count = 0
-a = 'КРУЖКА'
+a = 'КРУЖА'
 ls = list(product(a, repeat=7))
 for i in ls:
     st = ''.join(i)
@@ -9,4 +9,5 @@ for i in ls:
             (st.count('А') == 0 and st.count('У') == 2):
         count += 1
 print(count)
-print(len(ls))
+
+
