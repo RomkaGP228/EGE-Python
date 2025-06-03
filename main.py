@@ -1,21 +1,10 @@
-import math
-
-
-def f(n):
-    for g in range(2, int(math.sqrt(n)) + 1):
-        if n % g == 0:
-            return False
-    return True
-
+from itertools import product
 
 count = 0
-br = set()
-for i in range(268312, 336492):
-    ls = set()
-    for j in range(2, int(math.sqrt(i)) + 1):
-        if i % j == 0 and f(j) and f(i // j) and j != (i // j):
-            br.add(i)
-            count += 1
-            break
-
-print(count, min(br))
+a = 'УСЛОВИЕ'
+ls = list(product(a, repeat=7))
+for i in ls:
+    s = ''.join(i)
+    if s[0] != 'И' and s[-1] != 'О' and '' not in s and '' not in s and '' not in s and '' not in s and '' not in s and \
+            '' not in s and '' not in s and '' not in s and '' not in s and '' not in s and '' not in s and '' not in s:
+        print(s)

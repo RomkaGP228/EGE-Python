@@ -43,3 +43,52 @@ for i in range(9 ** 4, 9 ** 5):
 
 print(count)
 
+Условие:
+
+Решение:
+from itertools import product
+
+count = 0
+a = 'КРОВАТЬ'
+ls = list(product(a, repeat=5))
+for i in ls:
+    if i.count('Р') <= 4 and (len(i) - i.count('Р') + 1 == len(set(i))):
+        print(i)
+        count += 1
+
+print(count)
+
+Условие:
+from itertools import product
+
+count = 0
+a = 'САПОГ'
+ls = list(product(a, repeat=5))
+for i in ls:
+    st = ''.join(i)
+    if 'АО' not in st and 'ОА' not in st and 'СП' not in st and 'ПС' not in st and \
+            'ПГ' not in st and 'АО' not in st and 'ГС' not in st and 'СГ' not in st and \
+            'ГП' not in st:
+        count += 1
+
+print(count)
+
+Условие:
+
+Решение:
+from itertools import product
+
+count = 0
+a = 'ОБОРОНА'
+ls = list(product(a, repeat=7))
+for i in ls:
+    st = ''.join(i)
+    if 'ААА' in st or 'ААО' in st or 'АОА' in st or 'ОАА' in st or 'ООА' in st or 'ОАО' in st or \
+            'ООА' in st or 'ООО' in st or 'ААА' in st:
+        count += 1
+
+print(count)
+
+Условие:
+
+Решение:

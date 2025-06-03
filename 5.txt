@@ -25,3 +25,105 @@ for i in range(1, 1000):
         print(r, i)
         break
 
+Условие:
+
+Решение:
+for n in range(1, 1000):
+    bn = bin(n)[2:]
+    for _ in range(2):
+        if bn[-1] == '0':
+            bn += '1'
+        else:
+            bn += '0'
+    r = int(bn, 2)
+    if r > 157:
+        print(r)
+        break
+
+Условие:
+
+Решение:
+for n in range(94, 1000):
+    bn = bin(n)[2:]
+    for _ in range(3):
+        a = bn.count('1')
+        b = bn.count('0')
+        if a == b:
+            bn += bn[-1]
+        elif a > b:
+            bn += '0'
+        else:
+            bn += '1'
+    r = int(bn, 2)
+    if r % 6 == 0:
+        print(n)
+        break
+
+Условие:
+
+Решение:
+count = 0
+for n in range(1, 1000):
+    bn = bin(n)[2:]
+    a = bn.count('1')
+    if a % 2 == 0:
+        bn += '10'
+    else:
+        bn += '11'
+    bn += '0'
+    r = int(bn, 2)
+    if 128 <= r <= 256:
+        count += 1
+
+print(count)
+
+Условие:
+
+Решение:
+def f(n, base):
+    fin = ''
+    numeric = '0123456789'
+    while n > 0:
+        fin = numeric[n % base] + fin
+        n //= base
+    return fin
+
+
+for n in range(1, 1000):
+    fn = f(n, 4)
+    nfn = set(map(int, str(fn)))
+    if 0 in nfn:
+        nfn.remove(0)
+    s = 1
+    for i in nfn:
+        s *= i
+    if s % 3 == 0:
+        fn += '21'
+    else:
+        fn += '12'
+    r = int(fn, 4)
+    if r < 280:
+        print(r)
+
+
+Условие:
+
+Решение:
+def f(n, base):
+    fin = ''
+    numeric = '0123456789'
+    while n > 0:
+        fin = numeric[n % base] + fin
+        n //= base
+    return fin
+
+
+for n in range(1, 10000):
+    fn = f(n, 5)
+    if (n % 5) % 2 == 0:
+        fn += f(sum(map(int, str(fn))), 5)
+    else:
+        fn = '21' + fn
+    r = int(fn, 5)
+    if r <= 320:
+        print(n, r)
