@@ -1,10 +1,12 @@
 from itertools import product
 
 count = 0
-a = 'УСЛОВИЕ'
+a = 'КРУЖКА'
 ls = list(product(a, repeat=7))
 for i in ls:
-    s = ''.join(i)
-    if s[0] != 'И' and s[-1] != 'О' and '' not in s and '' not in s and '' not in s and '' not in s and '' not in s and \
-            '' not in s and '' not in s and '' not in s and '' not in s and '' not in s and '' not in s and '' not in s:
-        print(s)
+    st = ''.join(i)
+    if (st.count('А') == 2 and st.count('У') == 0) or (st.count('А') == 1 and st.count('У') == 1) or \
+            (st.count('А') == 0 and st.count('У') == 2):
+        count += 1
+print(count)
+print(len(ls))
