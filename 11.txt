@@ -300,5 +300,76 @@ I0 = 800
 I1 = I0 / n
 print(I1 - I)
 
+Условие:
+https://3.shkolkovo.online/catalog/4365/61627
+Решение:
+from math import log2, ceil
 
+K = 427
+N = 1008 + 10
+i = ceil(log2(N))
+n = 52488
+I = (K * i)  # ближайшее - 540
+I0 = (I * n) / (1024 * 1024 * 8)
+print(I0)
 
+Условие:
+https://3.shkolkovo.online/catalog/4365/59318
+Решение:
+from math import log2, ceil, floor
+
+N = 52 + 10
+K = 26 + 5
+i = ceil(log2(N))
+I1 = i * K
+n = 56734
+I0 = (I1 * n) / (8 * 1024 * 1024)
+print(floor(I0))
+
+Условие:
+https://3.shkolkovo.online/catalog/4365/59313
+Решение:
+from math import log2, ceil
+
+N = 4500 + 10
+K = 1380
+i = ceil(log2(N))
+I1 = ceil((i * K) / 8)
+n = 35800
+I0 = (I1 * n) / (1024 * 1024)
+print(ceil(I0))
+
+Условие:
+https://3.shkolkovo.online/catalog/4365/56567
+Решение:
+from math import log2, ceil
+
+K = 11
+N = 10 + 12 * 2
+i = ceil(log2(N))
+I1 = ceil(i * K / 8)
+n = 60
+print(I1 * n)
+Условие:
+https://3.shkolkovo.online/catalog/4365/56565
+Решение:
+from math import log2, ceil
+
+K = 15
+N = 6
+i = ceil(log2(N))
+I1 = ceil(i * K / 8)
+n = 20
+print(ceil(I1 * n))
+
+Условие:
+https://3.shkolkovo.online/catalog/4365/53627
+Решение:
+from math import log2, ceil
+
+K = 85
+N = 3989 + 10
+i = ceil(log2(N))
+n = 1024
+I1 = ceil(i * K / 8)
+print((I1 * n) / 1024)

@@ -1,13 +1,9 @@
-from itertools import product
+from math import log2, ceil
 
-count = 0
-a = 'КРУЖА'
-ls = list(product(a, repeat=7))
-for i in ls:
-    st = ''.join(i)
-    if (st.count('А') == 2 and st.count('У') == 0) or (st.count('А') == 1 and st.count('У') == 1) or \
-            (st.count('А') == 0 and st.count('У') == 2):
-        count += 1
-print(count)
-
-
+K = 427
+N = 1008 + 10
+i = ceil(log2(N))
+n = 524288
+I = ceil((K * i) / 8)  # ближайшее - 540
+I0 = (I * n) / (1024 * 1024)
+print(I0) # 270
