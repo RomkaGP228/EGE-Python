@@ -117,4 +117,170 @@ for A in range(1, 100):
         print(A)
         break
 
+Условие:
+https://3.shkolkovo.online/catalog/7517/62995
+Решение:
+for x in range(-5000, 5000):
+    A = 1
+    P = 25 <= x <= 30
+    Q = 13 <= x <= 22
+    f = ((A <= P) or Q)
+    if f:
+        print(x)
+
+Условие:
+https://3.shkolkovo.online/catalog/7517/60318
+Решение:
+for x in range(-5000, 5000):
+    A = 1
+    B = 12 <= x <= 20
+    C = 25 <= x <= 58
+    f = (A <= B) or C
+    if f:
+        print(x)
+
+Условие:
+https://3.shkolkovo.online/catalog/4446/80624
+Решение:
+count = 0
+
+for x in range(-5000, 5000):
+    A = 0
+    P = [6, 8, 20, 25, 27, 30]
+    Q = [2, 16, 19, 25, 30, 40]
+    f = (not ((not A) and (x in Q))) or ((not (x in P)) <= A)
+    if not f:
+        count += x
+print(count)
+
+Условие:
+https://3.shkolkovo.online/catalog/4446/80622
+Решение:
+count = 0
+
+for x in range(-5000, 5000):
+    A = 1
+    P = [2, 44, 6, 7, 11, 13, 14, 15, 16, 19, 21, 24, 27, 28, 29]
+    Q = [2, 3, 6, 9, 12, 13, 16, 17, 19, 21, 22, 23, 24, 25, 29]
+    f = ((x in Q) <= (not (x in P))) <= (not A)
+    if f:
+        count += 1
+print(count)
+Условие:
+https://3.shkolkovo.online/catalog/4446/80620
+Решение:
+count = 0
+
+for x in range(-5000, 5000):
+    A = 0
+    P = [1, 3, 9, 13, 17, 29, 35, 51, 42]
+    Q = [2, 3, 13, 35, 36, 39, 42, 51, 67]
+    f = (not ((x in Q) and (not (x in P)))) or A
+    if not f:
+        count += 1
+print(count)
+
+
+Условие:
+https://3.shkolkovo.online/catalog/4446/80619
+Решение:
+
+count = 0
+
+for x in range(-5000, 5000):
+    A = 0
+    P = x in [2, 7, 14, 28, 34, 102]
+    Q = x in [7, 12, 24, 28, 56, 94]
+    f = A or ((not P) <= (not Q))
+    if not f:
+        count += x
+print(count)
+
+Условие:
+https://3.shkolkovo.online/catalog/4446/62998
+Решение:
+
+count = 0
+
+for x in range(-5000, 5000):
+    A = 0
+    P = x in [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+    Q = x in [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
+    f = (P <= A) or ((not A) <= (not Q))
+    if not f:
+        count += 1
+print(count)
+
+Условие:
+https://3.shkolkovo.online/catalog/4447/87946
+Решение:
+
+for A in range(1000):
+    Flag = True
+    for y in range(1000):
+        if Flag:
+            for x in range(1000):
+                f = ((y + 10 * x) < A) or ((5 * x + 2 * y) > 102)
+                if not f:
+                    Flag = False
+                    break
+    if Flag:
+        print(A)
+        break
+
+
+Условие:
+https://3.shkolkovo.online/catalog/4447/72581
+Решение:
+for A in range(1, 1000):
+    Flag = True
+    for y in range(1, 1000):
+        if Flag:
+            for x in range(1, 1000):
+                f = ((2 * x) < y) or (x > 13) or ((x * y) < A)
+                if not f:
+                    Flag = False
+                    break
+    if Flag:
+        print(A)
+        break
+
+Условие:
+https://3.shkolkovo.online/catalog/4447/63531
+Решение:
+
+for A in range(1000):
+    Flag = True
+    for y in range(1, 1000):
+        if Flag:
+            for x in range(1, 1000):
+                f = ((3 * y + x) < A) or (x > 12) or (y > 15)
+                if not f:
+                    Flag = False
+                    break
+    if Flag:
+        print(A)
+        break
+
+Условие:
+https://3.shkolkovo.online/catalog/4447/63014
+Решение:
+
+for A in range(1000):
+    Flag = True
+    for y in range(1000):
+        if Flag:
+            for x in range(1000):
+                f = (x >= 7) or (2 * x < y) or (x * y < A)
+                if not f:
+                    Flag = False
+                    break
+    if Flag:
+        print(A)
+        break
+
+
+Условие:
+
+Решение:
 
