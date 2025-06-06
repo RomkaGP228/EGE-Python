@@ -1,9 +1,21 @@
-from math import log2, ceil
+def f(n, base):
+    fin = ''
+    numeric = '0123456789'
+    while n > 0:
+        fin = numeric[n % base] + fin
+        n //= base
+    return fin
 
-K = 427
-N = 1008 + 10
-i = ceil(log2(N))
-n = 524288
-I = ceil((K * i) / 8)  # ближайшее - 540
-I0 = (I * n) / (1024 * 1024)
-print(I0) # 270
+
+count = 0
+for i in range(8 ** 6, 8 ** 7):
+    si = str(f(i, 8))
+    if len(set(si)) == len(si) and len(si) == 7:
+        Flag = True
+        for j in range(len(si) - 1):
+            if (int(si[j]) % 2 == 0 and int(si[j + 1]) % 2 == 0) or \
+                    (int(si[j]) % 2 != 0 and int(si[j + 1]) % 2 != 0):
+                Flag = False
+        if Flag:
+            count += 1
+print(count)
