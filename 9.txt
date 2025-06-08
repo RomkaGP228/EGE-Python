@@ -1,0 +1,78 @@
+# Я просто беру данные из таблицы и переношу их в txt (copy/paste). Для меня работать в питоне сильно проще, чем в Excel.
+Условие:
+https://3.shkolkovo.online/catalog/5608/86046
+Решение:
+file = open('files for 9/1_9.txt', mode='r').readlines()
+data = list(map(lambda x: x.split(), file))
+count = 0
+for i in data:
+    line = list(map(int, i))
+    mal, mil = max(line), min(line)
+    if (line.count(mal) == 2 and line.count(mil) != 3) or (line.count(mal) != 2 and line.count(mil) == 3):
+        count += 1
+print(count)
+
+Условие:
+https://3.shkolkovo.online/catalog/5608/84345
+Решение:
+file = open('files for 9/9_84345.txt', mode='r').readlines()
+data = list(map(lambda x: x.split(), file))
+count = 0
+for i in data:
+    line = list(map(int, i))
+    chet = [line[2 - 1], line[4 - 1], line[6 - 1]]
+    nechet = [line[1 - 1], line[3 - 1], line[5 - 1], line[7 - 1]]
+    if len(set(line)) == 6 and max(nechet) > max(chet):
+        count += 1
+print(count)
+
+Условие:
+https://3.shkolkovo.online/catalog/5608/82190
+Решение:
+file = open('files for 9/9_82190.txt', mode='r').readlines()
+data = list(map(lambda x: x.split(), file))
+count = 0
+for i in data:
+    line = list(map(int, i))
+    chet = list(filter(lambda x: x % 2 == 0, line))
+    nechet = list(filter(lambda x: x % 2 != 0, line))
+    if len(chet) % 2 == 0 and len(nechet) % 2 != 0:
+        count += 1
+print(count)
+
+Условие:
+https://3.shkolkovo.online/catalog/5608/82189
+Решение:
+file = open('files for 9/9_82190.txt', mode='r').readlines()
+data = list(map(lambda x: x.split(), file))
+count = 0
+for i in data:
+    line = list(map(int, i))
+    srar = sum(line) / len(line)
+    lst = []
+    for j in range(len(line)):
+        for k in range(len(line)):
+            if k != j:
+                lst.append(line[k] + line[j])
+    if all(map(lambda x: x > 70, lst)) and srar > 50:
+        count += 1
+        print(line, lst)
+print(count)
+
+Условие:
+https://3.shkolkovo.online/catalog/5608/82188
+Решение:
+file = open('files for 9/9_82190.txt', mode='r').readlines()
+data = list(map(lambda x: x.split(), file))
+count = 0
+for i in data:
+    line = sorted(list(map(int, i)))
+    print(line)
+    sr = line[2]
+    mal = line[4]
+    mil = line[0]
+    pmal = line[3]
+    if ((mal - mil) < sr) or (sr * 2 > (mal + pmal)):
+        count += 1
+print(count)
+

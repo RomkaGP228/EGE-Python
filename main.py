@@ -1,10 +1,10 @@
+file = open('files for 9/9_84345.txt', mode='r').readlines()
+data = list(map(lambda x: x.split(), file))
 count = 0
-
-for x in range(-5000, 5000):
-    A = 0
-    P = x in [2, 7, 14, 28, 34, 102]
-    Q = x in [7, 12, 24, 28, 56, 94]
-    f = A or ((not P) <= (not Q))
-    if not f:
-        count += x
+for i in data:
+    line = list(map(int, i))
+    chet = [line[2 - 1], line[4 - 1], line[6 - 1]]
+    nechet = [line[1 - 1], line[3 - 1], line[5 - 1], line[7 - 1]]
+    if len(set(line)) == 6 and max(nechet) > max(chet):
+        count += 1
 print(count)
